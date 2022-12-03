@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Contact</title>
+    <link rel="stylesheet" href="vcontact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    
+    <header>
+        <div class="image">
+                <img src="pictures/profilepic.jpg" alt="Contact Profile Picture" width="100p" height="110p"> <!--filler image-->
+                <h1>Mr. Michael Scott</h1> <!--filler text-->
+                <p>Created on November 8, 2022 by David Wallace</p>  <!--filler text-->
+                <p>Updated on November 13, 2022</p>  <!--filler text-->
+        </div>
+
+        <div class="header-buttons">
+            <button type="button"><i class="fas fa-hand-paper"></i>Assign to me</button> 
+            <button type="button"><i class="fas fa-exchange"></i>Switch to Sales Lead</button> 
+        </div>
+
+    </header>
+    <br>
+
+    <section>
+
+        <div class="info-container">
+
+            <div class="contact-info">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="michael.scott@paper.co" readonly>  <!--filler text-->
+            </div>
+
+            <div class="contact-info">
+                <label for="telephone">Telephone</label>
+                <input type="text" id="telephone" name="telephone" value="876-999-9999" readonly>  <!--filler text-->
+            </div>
+
+            <div class="contact-info">
+                <label for="company">company</label>
+                <input type="text" id="text" name="text" value="The Paper Company" readonly>  <!--filler text-->
+            </div>
+
+            <div class="contact-info">
+                <label for="assigned">Assigned To</label>
+                <input type="text" id="assigned" name="assigned" value="Jen Levinson" readonly>  <!--filler text-->
+            </div>
+
+        </div>
+
+        <div class="notes-container">
+            
+            <div class="notes-title">
+                <label for="notes"><i class="fa-sharp fa-solid fa-pen-to-square">Notes</i></label>
+            </div>
+
+            <hr>
+
+            <div class="written-notes">
+                <h4>Jane Doe</h4> <!--filler text-->
+                <p>Lorem ipsum and some more words</p> <!--filler text-->
+                <p class="date"> November 10, 2022 at 4pm</p> <!--filler text-->
+            </div>
+
+            <div class="written-notes">
+                <h4>Jane Doe</h4> <!--filler text-->
+                <p>Lorem ipsum and some more words</p> <!--filler text-->
+                <p class="date"> November 10, 2022 at 4pm</p> <!--filler text-->
+            </div>
+
+            <div class="written-notes">
+                <h4>Jane Doe</h4> <!--filler text-->
+                <p>Lorem ipsum and some more words</p> <!--filler text-->
+                <p class="date"> November 10, 2022 at 4pm</p> <!--filler text-->
+            </div>
+            
+            <div class="add-notes">
+                <form action="">
+
+                    <div class="editnotes">
+                    <label for="editnotes">Add a not about Michael</label> <!--filler text-->
+                    <textarea name="editnotes" id="editnotes" cols="30" rows="10" placeholder="Enter details here"></textarea>
+                    </div>
+
+                    <div class="add-note-btn">
+                        <input type="submit" value="Add Note">
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    
+</body>
+</html>

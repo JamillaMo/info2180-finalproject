@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.create-contact{
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #c5c5c5;
+}
+
+.container{
+    max-width: 1170px;
+    margin: 0 auto;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+h1{
+    font-weight: 10px;
+    font-size: 30px;
+    margin-bottom: 1em;
+}
+
+form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px; 
+    background-color: white;
+    border-radius: 10px;
+    padding: 32px;
+    box-shadow: 0px 6px 12px rgb(96, 96, 96);
+
+}
+
+label{
+    display: block;
+    margin-bottom: 5px;
+    color: rgb(1, 1, 17);
+    font-size: 14px;
+}
+
+.form-element{
+    appearance: none;
+    outline: none;
+    border-width: 1px;
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+}
+
+.form-element:focus{
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+    background-color: rgb(255, 255, 239);
+}
+
+.form-groupfull.form-element{
+    grid-column: 1fr;
+} 
+
+/* select[id="title"]{ 
+    grid-column: 1fr!important;
+    width: 70px;  
+}  */
+
+.save-group{
+    grid-column: 1/-1;
+    text-align: right;
+
+}
+
+input[type="submit"]{
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 12px 16px;
+    background-color: rgb(0, 102, 255);
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+
+    transition: 0.4s;
+}
+
+.save-group{
+    background-color: #eceaea;
+    padding: 7px;
+}
+
+input[type="submit"]:hover{
+    background-color: rgb(70, 139, 243);
+    border: whitesmoke;
+}
