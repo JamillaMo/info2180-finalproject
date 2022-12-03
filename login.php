@@ -25,16 +25,16 @@ $sql = "SELECT * FROM users WHERE email='$username' AND password='$password'";
 
 $result = mysqli_query($conn, $sql);
 
-if(mysqli_num_rows($result) === 1) {
-    $row = mysqli_fetch_assoc($result);
-    if ($row['email'] === $username && $row['password'] === $password) {
-        echo "Login Successful!";
+$row = mysqli_fetch_assoc($result);
+
+
+if(mysqli_num_rows($result) === 1 && $row['email'] === $username && $row['password'] === password_verify($password, $row['password'])) {
+    echo "Login Successful!";
         $_SESSION['email'] = $row['email'];
         $_SESSION['name'] = $row['name'];
         $_SESSION['id'] = $row['id'];
         header("Location: home.php");
         exit();
-    }
 }
 else{
     header ("Location: index.php?error=Incorrect Email or Password");
