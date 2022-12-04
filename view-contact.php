@@ -27,18 +27,21 @@ $row = mysqli_fetch_array($result);
     
     <header>
         <div class="image">
-                <img src="pictures/profilepic2.jpg" alt="Contact Profile Picture" width="90p" height="90p"> <!--filler image-->
+                <img src="pictures/profilepic2.jpg" alt="Contact Profile Picture" width="90p" height="90p"> 
 
                 <div class="text">
-                    <h1><?php $row['title']." ".$row['firstname']." ".$row['lastname'] ?></h1> <!--filler text-->
-                    <p><?php $row['created_at']." ".$row['created_by'] ?></p>  <!--filler text-->
-                    <p><?php $row['updated_at'] ?></p>  <!--filler text-->
+                    <h1><?php $row['title']." ".$row['firstname']." ".$row['lastname'] ?></h1> 
+                    <p><?php $row['created_at']." ".$row['created_by'] ?></p>  
+                    <p><?php $row['updated_at'] ?></p>  
                 </div>
         </div>
 
         <div class="header-buttons">
             <button type="button" id="abtn"><i class="fas fa-hand-paper"></i>Assign to me</button> 
-            <button type="button" id="sbtn"><i class="fas fa-exchange"></i>Switch to Sales Lead</button> 
+            <?php if ($row['type'=="Sales Lead"]): ?>
+                <button type="button" id="sbtn"><i class="fas fa-exchange"></i>Switch to Support</button> 
+            <?php else: ?>
+                <button type="button" id="slbtn"><i class="fas fa-exchange"></i>Switch to Sales Lead</button>
         </div>
 
     </header>
@@ -50,22 +53,22 @@ $row = mysqli_fetch_array($result);
 
             <div class="contact-info">
                 <label for="email"><h4 style="color: #365871;">Email</h4></label>
-                <input type="email" id="email" name="email" value="michael.scott@paper.co" readonly class="info-element">  <!--filler text-->
+                <input type="email" id="email" name="email" value="michael.scott@paper.co" readonly class="info-element">  
             </div>
 
             <div class="contact-info">
                 <label for="telephone"><h4 style="color: #365871;">Telephone</h4></label>
-                <input type="text" id="telephone" name="telephone" value="876-999-9999" readonly class="info-element">  <!--filler text-->
+                <input type="text" id="telephone" name="telephone" value="876-999-9999" readonly class="info-element">  
             </div>
 
             <div class="contact-info">
                 <label for="company"><h4 style="color: #365871;">Company</h4></label>
-                <input type="text" id="text" name="text" value="The Paper Company" readonly class="info-element">  <!--filler text-->
+                <input type="text" id="text" name="text" value="The Paper Company" readonly class="info-element">  <
             </div>
 
             <div class="contact-info">
                 <label for="assigned"><h4 style="color: #365871;">Assigned To</h4></label>
-                <input type="text" id="assigned" name="assigned" value="Jen Levinson" readonly class="info-element">  <!--filler text-->
+                <input type="text" id="assigned" name="assigned" value="Jen Levinson" readonly class="info-element">  
             </div>
 
         </div>
