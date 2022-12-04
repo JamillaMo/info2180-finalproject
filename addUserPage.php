@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['id'])){
+    session_destroy();
+    header('Location: index.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +33,7 @@
                 <a href="#"><li><i class="material-icons">account_circle</i>New Contact</li></a>
                 <a href="#"><li><i class="material-icons">people_outline</i>Users</li></a>
                 <hr>
-                <a href="#"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
+                <a href="lougout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
             </ul>
         </aside>
     

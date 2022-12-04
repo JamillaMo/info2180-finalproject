@@ -1,4 +1,4 @@
-window.addEventListener('click', ()=>{
+window.addEventListener('load', ()=>{
 
 
     const fnameInput = document.querySelector("#fname")
@@ -15,7 +15,7 @@ window.addEventListener('click', ()=>{
     const drop_Selected = document.querySelector('.selected')
 
 
-    const saveBtn = document.querySelector(".controls button")
+    const saveBtn = document.querySelector("button")
     const controls = document.querySelector(".controls")
     const msgBox = document.querySelector(".msg")
 
@@ -89,11 +89,23 @@ window.addEventListener('click', ()=>{
             controls.classList.remove('fail')
             controls.classList.add('success')
 
-            let firstName = fnameInput.value.trim()
-            let lastName = lnameInput.value.trim()
-            let email = emailInput.value.trim()
-            let password = passwordInput.value.trim()
-            let role = drop_Select.value.trim()
+            console.log("FIELDSOK")
+            fetch('addUser.php', {
+                method: 'POST',
+                headers: {'Content-Type':'application/x-www-form-urlencoded'},
+                body: `fname=${fnameInput.value.trim()}&lname=${lnameInput.value.trim()}&email=${emailInput.value.trim()}&password=${passwordInput.value.trim()}&role=${drop_Selected.textContent}`
+            })
+            .then(response => {
+                if(response.ok){return response.text()}
+                else{return Promise.reject('Something was wrong with fetch request!')}
+            })
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => {
+                console.log(`ERROR: ${error}`)
+            })      
+
         }
         else
         {
@@ -101,6 +113,7 @@ window.addEventListener('click', ()=>{
             controls.classList.add('fail')
             controls.classList.remove('success')
         }
+
 
 
     })
