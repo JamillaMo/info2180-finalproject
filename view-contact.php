@@ -1,13 +1,10 @@
 <?php
-$viewlink = filter_input(INPUT_GET, "viewlink", FILTER_SANITIZE_STRING);
-$name = filter_input(INPUT_GET, "contactname", FILTER_SANITIZE_STRING);
-$host = "localhost";
-$username = "root";
-$password = "";
-$db_name = "dolphin_crm";
-
-$conn = new PDO("mysql:host=$host; dbname=$db_name; charset=utf8mb4",$username, $password);
-$result = mysqli_query($conn, "SELECT title, firstname, lastname, email, company, telephone, created_at, created_by, updated_at, assigned_to");
+//$viewlink = filter_input(INPUT_GET, "viewlink", FILTER_SANITIZE_STRING);
+//$name = filter_input(INPUT_GET, "contactname", FILTER_SANITIZE_STRING);
+session_start();
+include("db_conn.php");
+$sql = "SELECT title, firstname, lastname, email, company, type, telephone, created_at, created_by, updated_at, assigned_to FROM contacts";
+$result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
@@ -20,7 +17,6 @@ $row = mysqli_fetch_array($result);
     <link rel="stylesheet" href="vcontact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <script src="ViewContactDetails.js"></script>
 </head>
 <body>
 
@@ -37,11 +33,36 @@ $row = mysqli_fetch_array($result);
         </div>
 
         <div class="header-buttons">
-            <button type="button" id="abtn"><i class="fas fa-hand-paper"></i>Assign to me</button> 
+            <button type="button" id="abtn" onclick="assignclick()"><i class="fas fa-hand-paper"></i>Assign to me</button> 
+            <script> 
+                function assignclick() {
+                <?php $sql1 = "UPDATE contacts SET assigned_to= '{$row['firstname']}' '{$row['lastname']}' WHERE firstname= '{$row[firstname]}'"; 
+                    $conn->query($sql1);
+                    $sql2 = "UPDATE contacts SET updated_at= DATE(NOW())";
+                    $conn->query($sql2);?>
+                }
+            </script>
             <?php if ($row['type'=="Sales Lead"]): ?>
-                <button type="button" id="sbtn"><i class="fas fa-exchange"></i>Switch to Support</button> 
+                <button onclick= "switchclick1()" type="button" id="sbtn"><i class="fas fa-exchange"></i>Switch to Support</button> 
+            <script> 
+                function switchclick1(){
+                    <?php $sql1 = "UPDATE contacts SET type = 'Support' WHERE firstname= '{$row['firstname']}'"; 
+                    $conn->query($sql1);
+                    $sql2 = "UPDATE contacts SET updated_at= DATE(NOW())";
+                    $conn->query($sql2);?>
+                }
+            </script>
             <?php else: ?>
-                <button type="button" id="slbtn"><i class="fas fa-exchange"></i>Switch to Sales Lead</button>
+                <button onclick= "switchclick2()" type="button" id="sbtn"><i class="fas fa-exchange"></i>Switch to Sales Lead</button>
+            <script> 
+                function switchclick2(){
+                    <?php $sql1 = "UPDATE contacts SET type = 'Sales Lead' WHERE firstname= '{'$row[firstname]'}'"; 
+                    $conn->query($sql1);
+                    $sql2 = "UPDATE contacts SET updated_at= DATE(NOW())";
+                    $conn->query($sql2);?>
+                }
+            </script>
+            <?php endif ?>
         </div>
 
     </header>
@@ -110,7 +131,7 @@ $row = mysqli_fetch_array($result);
                         <form action="">
 
                             <div class="editnotes">
-                            <label for="editnotes">Add a Note about <?php $row['first_name'] ?></label> <!--filler text-->
+                            <label for="editnotes">Add a Note about <?php $row['first_name'] ?></label> 
                             <textarea name="editnotes" id="editnotes" cols="50" rows="10" placeholder="Enter details here"></textarea>
                             </div>
 
