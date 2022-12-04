@@ -90,6 +90,18 @@ input[type="submit"]{
 .save-group{
     background-color: #eceaea;
     padding: 7px;
+    color: #fff;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.save-group.success{
+    background-color: rgb(102, 201, 102);
+}
+.save-group.fail{
+    background-color: rgb(255, 122, 122);
 }
 
 input[type="submit"]:hover{

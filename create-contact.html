@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Contact</title>
-    <link rel="stylesheet" href="ccontact.css">
+    <link rel="stylesheet" href="create-contact.css">
+    <script src="create-contact.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -17,7 +18,7 @@
 
                 <h1>New Contact</h1>
 
-                <form action="">
+                <form>
 
                     <div class="form-groupfull">
                         <label for="title">Title</label>
@@ -57,8 +58,7 @@
                                 <label for="type">Type</label>
                                 <select name="type" id="type" class="form-element">
                                     <option value="Sales Lead">Sales Lead</option>
-                                    <option value="Support"></option>
-                                    <option value=""></option>
+                                    <option value="Support">Support</option>
                                 </select>
                             </div>
                            
@@ -66,13 +66,14 @@
                     <div class="form-groupfull">
                         <label for="assigned">Assigned To</label>
                         <select name="assigned" id="assigned" class="form-element">
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
                         </select>
                     </div>
 
                     <div class="save-group">
+                        <div class="msg"></div>
                         <input type="submit" value="Save">
                     </div>
 
