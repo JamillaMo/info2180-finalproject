@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="dashboard.js"></script>
+</head>
+<body>
+    <nav>
+        <img src="#" alt="Dolphin CRM LOGO" srcset="">
+        <p>Dolphin CRM</p>
+    </nav>
+
+    <div class="container">
+        <aside>
+            <ul>
+                <a href="#"><li><i class="material-icons">home</i>Home</li></a>
+                <a href="#"><li><i class="material-icons">account_circle</i>New Contact</li></a>
+                <a href="#"><li><i class="material-icons">people_outline</i>Users</li></a>
+                <hr>
+                <a href="lougout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
+            </ul>
+        </aside>
+
+        <main>
+            <header>
+                <h1>Dashboard</h1>
+                <button><i class="material-icons">group_add</i>Add Contact</button>
+            </header>
+
+            <section>
+                <div class="controls">
+                    <i class="material-icons">filter_list</i>
+                    <h3>Filter By:</h3>
+                    <button class="active filter-all">All</button>
+                    <button class="filter-sales">Sales Leads</button>
+                    <button class="filter-support">Support</button>
+                    <button class="filter-assigned">Assigned to me</button>
+                </div>
+
+                <table>
+                    <colgroup>
+                        <col style="width: 25%">
+                        <col style="width: 25%">
+                        <col style="width: 25%">
+                        <col style="width: 15%">
+                        <col style="width: 10%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Name</th> <th>Email</th> <th>Company</th> <th>Type</th> <th></th>
+                        </tr> 
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Name</td> <td>Email</td> <td>Company</td> <td><span class="sales-lead">Type</span></td> <td><a>Test1</a></td>
+                        </tr>
+                        <tr>
+                            <td>Name</td> <td>Email</td> <td>Company</td> <td><span class="support">Type</span></td> <td><a>Test2</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+</body>
+</html>
