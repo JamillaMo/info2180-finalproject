@@ -1,6 +1,19 @@
-<?php include "db_conn.php";
-$sql= "SELECT title, firstname, lastname, email, company, type FROM contacts";   
-$result = mysqli_query($conn, $sql);
+<?php
+
+//include "db_conn.php";
+//USING PDO INSTEAD OF mysqli
+$host = "localhost";
+$username = "root";
+$password = "";
+$db_name = "dolphin_crm";
+
+$conn = new PDO("mysql:host=$host; dbname=$db_name; charset=utf8mb4",$username, $password);
+
+$stmt = $conn->prepare("SELECT * FROM contacts");
+$stmt->execute();
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+session_start();
 
 ?>
 <!DOCTYPE html>
@@ -63,12 +76,18 @@ $result = mysqli_query($conn, $sql);
                     </thead>
                     <tbody>
                     <?php foreach ($results as $row):
-                        ?>
+
+                        // Creating the text to put in the classes for the span based on DB result 
+                        $classText;
+                        if($row['type'] == "Support"){$classText = "support";}
+                        if($row['type'] == "Sales Lead"){$classText = "sales-lead";}
+                    ?>
+
                         <tr>
-                            <td><a href="view-contact.html" id= "name"><?php echo $row['title']." ".$row['firstname']." ".$row['lastname'] ?></a></td> 
-                            <td><?php echo $row['email'] ?></td> 
-                            <td><?php $row['company'] ?></td> 
-                            <td><span class="sales-lead"><?php $row['type'] ?></span></td> 
+                            <td><p id= "name"><?php echo $row['title']." ".$row['firstname']." ".$row['lastname'] ?></p></td> 
+                            <td><?php echo $row['email']?></td> 
+                            <td><?php echo $row['company']?></td> 
+                            <td><?php echo "<span class=\"" . $classText . "\">" . $row['type'] . "</span>" ?></td> 
                             <td><a href="view-contact.html" id= "link">Link</a></td>        
                         </tr>
                     <?php endforeach; ?>    
