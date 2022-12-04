@@ -23,17 +23,27 @@ window.addEventListener('load', ()=>{
         if(firstName.value.trim() == "")
         {
             fieldsOK = false
+            msg = document.querySelector(".fnameMsg")
+            msg.innerHTML = '<i class=\"material-icons\">&#xe000;</i>Enter a First Name'
+            msg.classList.add('error')
         }
         else{
-
+            msg = document.querySelector(".fnameMsg")
+            msg.innerHTML = ''
+            msg.classList.remove('error')
         }
         //Checking if lastname is empty
         if(lastName.value.trim() == "")
         {
             fieldsOK = false
+            msg = document.querySelector(".lnameMsg")
+            msg.innerHTML = '<i class=\"material-icons\">&#xe000;</i>Enter a Last Name'
+            msg.classList.add('error')
         }
         else{
-            
+            msg = document.querySelector(".lnameMsg")
+            msg.innerHTML = ''
+            msg.classList.remove('error')
         }
 
         //Checking if email matches format
@@ -41,27 +51,42 @@ window.addEventListener('load', ()=>{
         if(!email.value.trim().match(mailformat))
         {
             fieldsOK = false
+            msg = document.querySelector(".emailMsg")
+            msg.innerHTML = '<i class=\"material-icons\">&#xe000;</i>Enter a valid email'
+            msg.classList.add('error')
         }
         else{
-
+            msg = document.querySelector(".emailMsg")
+            msg.innerHTML = ''
+            msg.classList.remove('error')
         }
 
         //Checking if telephone number is empty
         if(number.value.trim() == "")
         {
             fieldsOK = false
+            msg = document.querySelector(".phoneMsg")
+            msg.innerHTML = '<i class=\"material-icons\">&#xe000;</i>Enter a Telephone number'
+            msg.classList.add('error')
         }
         else{
-            
+            msg = document.querySelector(".phoneMsg")
+            msg.innerHTML = ''
+            msg.classList.remove('error')
         }
 
         //Checking if company is empty
         if(company.value.trim() == "")
         {
             fieldsOK = false
+            msg = document.querySelector(".companyMsg")
+            msg.innerHTML = '<i class=\"material-icons\">&#xe000;</i>Enter a Company'
+            msg.classList.add('error')
         }
         else{
-            
+            msg = document.querySelector(".companyMsg")
+            msg.innerHTML = ''
+            msg.classList.remove('error')
         }
 
         //Checking if assigned is empty
@@ -70,7 +95,7 @@ window.addEventListener('load', ()=>{
             fieldsOK = false
         }
         else{
-            
+
         }
 
         if(fieldsOK)

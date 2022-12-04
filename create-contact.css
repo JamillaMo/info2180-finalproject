@@ -11,6 +11,7 @@ html{
 }
 body{
     height: 100%;
+    background-color: rgb(233, 233, 233);
 }
 a, button{
     cursor: pointer;
@@ -36,7 +37,6 @@ nav img{
 .container{
     display: flex;
     height: 100%;
-    background-color: #c5c5c5;
 }
 main{
     height: 100%;
@@ -88,9 +88,9 @@ li{
 }
 
 h1{
-    font-weight: 10px;
     font-size: 30px;
-    margin-bottom: 1em;
+    margin-bottom: 20px;
+    font-weight: bolder;
 }
 
 form{
@@ -103,6 +103,7 @@ form{
     box-shadow: 0px 6px 12px rgb(96, 96, 96);
 
 }
+
 
 label{
     display: block;
@@ -175,4 +176,15 @@ input[type="submit"]{
 input[type="submit"]:hover{
     background-color: rgb(70, 139, 243);
     border: whitesmoke;
+}
+
+.error i{
+    font-size: 16px;
+}
+.error{
+    color: red;
+    display: flex;
+    align-items: center;
+    margin-top: 3px;
+    font-size: 14px;
 }
