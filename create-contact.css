@@ -1,22 +1,90 @@
 *{
     margin: 0;
     padding: 0;
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+}
+a, button{
+    cursor: pointer;
+}
 
-.create-contact{
-    min-height: 100vh;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    background-color: #c5c5c5;
+/****NAVIGATION****/
+nav{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px;
+    height: 70px;
+    background: linear-gradient(90deg, rgb(24, 180, 201) 0%, rgba(0,113,156,1) 100%);
+
+    font-weight: bolder;
+    color: white;
+}
+
+nav img{
+    margin-right: 15px;
 }
 
 .container{
-    max-width: 1170px;
-    margin: 0 auto;
-    padding-left: 32px;
-    padding-right: 32px;
+    display: flex;
+    height: 100%;
+    background-color: #c5c5c5;
+}
+main{
+    height: 100%;
+}
+
+/****SIDEBAR****/
+aside{
+    width: 250px;
+    background-color: white;
+    height: 100%;
+
+    padding: 20px;
+}
+
+aside i{
+    margin-right: 10px;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    text-decoration: none;
+    color: black;
+
+    transition: 0.2s;
+}
+a:hover{
+    margin-left: 10px;
+    color: rgba(0,113,156,1);
+}
+
+li{
+    display: flex;
+    align-items: center;
+}
+
+
+/****CREATE CONTACT SECTION****/
+.create-contact{
+    width: 100%;
+    padding: 50px;
 }
 
 h1{
