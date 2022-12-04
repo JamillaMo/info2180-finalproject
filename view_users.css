@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+* { 
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+     box-sizing: border-box; 
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    margin: 0;
+    height: 100%;
+    background-color: rgb(233, 233, 233);
+    font-family: 'Lato', sans-serif;
+}
+
+.header {
+    background: linear-gradient(90deg, rgb(24, 180, 201) 0%, rgba(0,113,156,1) 100%);
+    padding: 10px;
+    height: 70px;
+    color: #ffffff;
+}
+
+.logo {
+    height: 30px;
+    float: left;
+    margin-right: 15px;
+}
+
+.mainpageHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1{
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+button {
+    height: 40px;
+    width: 150px;
+    font-size: 14px;
+    
+    background-color: rgb(10, 132, 180);
+    color: #fff;
+    
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s;
+}
+
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-size: 1em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+thead tr {
+    background-color: #bfefff;
+    color: black;
+    font-weight: bold;
+}
+
+th,td {
+    padding: 12px 15px;
+}
+
+tbody tr{
+    border-bottom: 1px solid #dddddd;
+
+    transition: 0.2s;
+}
+
+/* .tableClass {
+    background-color: #ffffff;
+} */
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+/* ul li {
+    list-style-type: none;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+aside {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 250px;
+    align-items: center;
+}
+
+aside i{
+    margin-right: 10px;
+}*/
+
+aside {
+    width: 250px;
+    background-color: white;
+    height: 100%;
+
+    padding: 20px;
+}
+
+aside i {
+    margin-right: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+aside a {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    text-decoration: none;
+    color: black;
+
+    transition: 0.2s;
+}
+
+aside a:hover {
+    margin-left: 10px;
+    color: rgba(0,113,156,1);
+}
+
+li{
+    display: flex;
+    align-items: center;
+}
+
+section {
+    background-color: #bfefff;
+    padding: 20px;
+    width: 100%;
+}
