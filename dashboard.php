@@ -65,11 +65,11 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <tbody>
                     <?php foreach ($results as $row):?>
                         <tr>
-                            <td><a href="view-contact.html"><?php echo $row['title']." ".$row['firstname']." ".$row['lastname'] ?></a></td> 
+                            <td><a href="view-contact.html" id= "name"><?php echo $row['title']." ".$row['firstname']." ".$row['lastname'] ?></a></td> 
                             <td><?php echo $row['email'] ?></td> 
                             <td><?php $row['company'] ?></td> 
                             <td><span class="sales-lead"><?php $row['type'] ?></span></td> 
-                            <td><a href="view-contact.html">Link</a></td>        
+                            <td><a href="view-contact.html" id= "link">Link</a></td>        
                         </tr>
                     <?php endforeach; ?>    
                     </tbody>
