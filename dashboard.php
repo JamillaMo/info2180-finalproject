@@ -1,6 +1,6 @@
 <?php include "db_conn.php";
-$stmt = $conn->query("SELECT title, firstname, lastname, email, company, type FROM contacts;")     
-$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$sql= "SELECT title, firstname, lastname, email, company, type FROM contacts";   
+$result = mysqli_query($conn, $sql);
 
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,6 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="dashboard.css">
-    <script src="dashboard.js"></script>
     <script src="ViewContactDetails.js"></script>
 </head>
 <body>
@@ -63,7 +62,8 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </tr> 
                     </thead>
                     <tbody>
-                    <?php foreach ($results as $row):?>
+                    <?php foreach ($results as $row):
+                        ?>
                         <tr>
                             <td><a href="view-contact.html" id= "name"><?php echo $row['title']." ".$row['firstname']." ".$row['lastname'] ?></a></td> 
                             <td><?php echo $row['email'] ?></td> 
