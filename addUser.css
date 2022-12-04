@@ -106,6 +106,8 @@ h2{
     grid-template-columns: 1fr 1fr;
     grid-gap: 30px;
 
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
 }
 
 input{
