@@ -22,7 +22,7 @@ if(!isset($_SESSION['id'])){
 </head>
 <body>
     <nav>
-        <img src="#" alt="Dolphin CRM LOGO" srcset="">
+        <img src="img/Dolphin.jpg" alt="Dolphin CRM LOGO" srcset="">
         <p>Dolphin CRM</p>
     </nav>
 
