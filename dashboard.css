@@ -63,6 +63,9 @@ ul{
     padding: 0;
 }
 
+.currentPage{
+    color: rgb(74, 192, 207);
+}
 aside a{
     display: flex;
     align-items: center;

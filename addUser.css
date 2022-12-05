@@ -64,7 +64,9 @@ ul{
     margin: 0;
     padding: 0;
 }
-
+.currentPage{
+    color: rgb(74, 192, 207);
+}
 a{
     display: flex;
     align-items: center;
