@@ -1,43 +1,32 @@
-<?php
-session_start();
-include "db_conn.php";
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dolphin CRM</title>
 
-$username = $_POST['email'];
-$password = $_POST['password'];
+        <link href="css/login.css" type="text/css" rel="stylesheet">
 
-$username = trim($username);
-$password = stripcslashes($password);
-$username = mysqli_real_escape_string($conn, $username);  
-$password = mysqli_real_escape_string($conn, $password);  
+    </head>
+        
+    <body>
+    <div id="bg"></div>
+        <form action="login.php" method="post">
+                <h2>LOGIN</h2>
+                <?php if(isset($_GET['error'])) { ?>
+                    <p class="error"> <?php echo $_GET['error']; ?></p>
+                <?php } ?>
+                
+                <div class="form-field">
+                <input type="text" name = "email" placeholder="Email address"><br>
+                </div>
 
-
-
-if(empty($username)){
-    header ("Location: index.php?error=Email is required");
-    exit();
-}
-else if(empty($password)){
-    header ("Location: index.php?error=Password is required");
-    exit();
-}
-
-$sql = "SELECT * FROM users WHERE email='$username' AND password='$password'";
-
-$result = mysqli_query($conn, $sql);
-
-if(mysqli_num_rows($result) === 1) {
-    $row = mysqli_fetch_assoc($result);
-    if ($row['email'] === $username && $row['password'] === $password) {
-        echo "Login Successful!";
-        $_SESSION['email'] = $row['email'];
-        $_SESSION['name'] = $row['name'];
-        $_SESSION['id'] = $row['id'];
-        header("Location: home.php");
-        exit();
-    }
-}
-else{
-    header ("Location: index.php?error=Incorrect Email or Password");
-    exit();
-}  
-?>  
+                <div class="form-field">
+                <input type="password" name="password" placeholder="Password"><br>
+                </div>
+                
+                <div class = "form-field">
+                <button type="submit" class = "btn">Login</button>
+                </div>
+            </form>
+    </body>
+</html>

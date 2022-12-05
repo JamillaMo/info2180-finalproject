@@ -16,8 +16,8 @@ if(!isset($_SESSION['id'])){
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
-    <link rel="stylesheet" href="addUser.css">
-    <script src="addUser.js"></script>
+    <link rel="stylesheet" href="css/addUser.css">
+    <script src="js/addUser.js"></script>
     
 </head>
 <body>
@@ -33,7 +33,7 @@ if(!isset($_SESSION['id'])){
                 <a href="create-contact.html"><li><i class="material-icons">account_circle</i>New Contact</li></a>
                 <a href="#"><li><i class="material-icons">people_outline</i>Users</li></a>
                 <hr>
-                <a href="logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
+                <a href="php/logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
             </ul>
         </aside>
     

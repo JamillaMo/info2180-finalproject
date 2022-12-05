@@ -25,8 +25,8 @@ session_start();
     <title>Dashboard</title>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="dashboard.css">
-    <script src="ViewContactDetails.js"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="js/ViewContactDetails.js"></script>
 </head>
 <body>
     <nav>
@@ -41,7 +41,7 @@ session_start();
                 <a href="create-contact.html"><li><i class="material-icons">account_circle</i>New Contact</li></a>
                 <a href="#"><li><i class="material-icons">people_outline</i>Users</li></a>
                 <hr>
-                <a href="logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
+                <a href="php/logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
             </ul>
         </aside>
 
