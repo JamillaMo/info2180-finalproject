@@ -47,7 +47,8 @@ nav img{
 }
 
 aside{
-    width: 250px;
+
+    min-width: 200px;
     background-color: white;
     height: 100%;
 
