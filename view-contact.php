@@ -36,7 +36,7 @@ $row = mysqli_fetch_array($result);
             <button type="button" id="abtn" onclick="assignclick()"><i class="fas fa-hand-paper"></i>Assign to me</button> 
             <script> 
                 function assignclick() {
-                <?php $sql1 = "UPDATE contacts SET assigned_to= '{$row['firstname']}' '{$row['lastname']}' WHERE firstname= '{$row[firstname]}'"; 
+                <?php $sql1 = "UPDATE contacts SET assigned_to= '{$row['firstname']}' '{$row['lastname']}' WHERE firstname= '{$row['firstname']}'"; 
                     $conn->query($sql1);
                     $sql2 = "UPDATE contacts SET updated_at= DATE(NOW())";
                     $conn->query($sql2);?>
@@ -56,7 +56,7 @@ $row = mysqli_fetch_array($result);
                 <button onclick= "switchclick2()" type="button" id="sbtn"><i class="fas fa-exchange"></i>Switch to Sales Lead</button>
             <script> 
                 function switchclick2(){
-                    <?php $sql1 = "UPDATE contacts SET type = 'Sales Lead' WHERE firstname= '{'$row[firstname]'}'"; 
+                    <?php $sql1 = "UPDATE contacts SET type = 'Sales Lead' WHERE firstname= '{$row['firstname']}'"; 
                     $conn->query($sql1);
                     $sql2 = "UPDATE contacts SET updated_at= DATE(NOW())";
                     $conn->query($sql2);?>
@@ -74,22 +74,22 @@ $row = mysqli_fetch_array($result);
 
             <div class="contact-info">
                 <label for="email"><h4 style="color: #365871;">Email</h4></label>
-                <input type="email" id="email" name="email" value="michael.scott@paper.co" readonly class="info-element">  
+                <input type="email" id="email" name="email" value="<?php $row['email'] ?>" readonly class="info-element">  
             </div>
 
             <div class="contact-info">
                 <label for="telephone"><h4 style="color: #365871;">Telephone</h4></label>
-                <input type="text" id="telephone" name="telephone" value="876-999-9999" readonly class="info-element">  
+                <input type="text" id="telephone" name="telephone" value="<?php $row['telephone'] ?>" readonly class="info-element">  
             </div>
 
             <div class="contact-info">
                 <label for="company"><h4 style="color: #365871;">Company</h4></label>
-                <input type="text" id="text" name="text" value="The Paper Company" readonly class="info-element">  <
+                <input type="text" id="text" name="text" value="<?php $row['company'] ?>" readonly class="info-element">  <
             </div>
 
             <div class="contact-info">
                 <label for="assigned"><h4 style="color: #365871;">Assigned To</h4></label>
-                <input type="text" id="assigned" name="assigned" value="Jen Levinson" readonly class="info-element">  
+                <input type="text" id="assigned" name="assigned" value="<?php $row['assigned_to'] ?>" readonly class="info-element">  
             </div>
 
         </div>

@@ -2,7 +2,16 @@
     $result = mysqli_query($con,"SELECT * FROM users");
 
     while($row = mysqli_fetch_array($result)) {
-        echo "<tbody><tr><td>.$row['firstname'] " " $row['lastname'].</td><td>.$row['email'].</td><td>.$row['role'].</td><td>.$row['created'].</td>";
+        echo "<table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Created</th>
+            </tr> 
+        </thead>";
+        echo "<tbody><tr><td>.$row['firstname'].</td><td>.$row['email'].</td><td>.$row['role'].</td><td>.$row['created'].</td>";
         echo "</table>";
     }
 ?>

@@ -41,7 +41,7 @@ session_start();
                 <a href="create-contact.html"><li><i class="material-icons">account_circle</i>New Contact</li></a>
                 <a href="#"><li><i class="material-icons">people_outline</i>Users</li></a>
                 <hr>
-                <a href="lougout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
+                <a href="logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
             </ul>
         </aside>
 
