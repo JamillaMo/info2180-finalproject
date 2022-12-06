@@ -10,12 +10,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>View User</title>
-    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <link rel="stylesheet" href="css/view_users.css">
+    <script src="js/addUserBtn.js"></script>
 </head>
 <body>
     <div class="header">
@@ -39,21 +37,23 @@
                 <h1>Users</h1>
                 <button>Add User</button>
             </div>
-            <?php
-                while($row = mysqli_fetch_array($result)) {
-                    echo "<table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Created</th>
-                        </tr> 
-                    </thead>";
-                    echo "<tbody><tr><td>".$row['title']." ".$row['firstname']." ".$row['lastname']."</td><td>".$row['email']."</td><td>".$row['role']."</td><td>".$row['created']."</td>";
-                    echo "</table>";
-                }
-            ?>
+            <div class="table">
+                <?php
+                    while($row = mysqli_fetch_array($result)) {
+                        echo "<table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Created</th>
+                            </tr> 
+                        </thead>";
+                        echo "<tbody><tr><td>".$row['title']." ".$row['firstname']." ".$row['lastname']."</td><td>".$row['email']."</td><td>".$row['role']."</td><td>".$row['created_at']."</td>";
+                        echo "</table>";
+                    }
+                ?>
+            </div>
         </section>
     </div>
 </body>
