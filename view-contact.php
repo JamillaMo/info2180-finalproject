@@ -1,11 +1,22 @@
 <?php
-//$viewlink = filter_input(INPUT_GET, "viewlink", FILTER_SANITIZE_STRING);
-//$name = filter_input(INPUT_GET, "contactname", FILTER_SANITIZE_STRING);
+
 session_start();
 include("db_conn.php");
-$sql = "SELECT title, firstname, lastname, email, company, type, telephone, created_at, created_by, updated_at, assigned_to FROM contacts";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_array($result);
+
+$host = "localhost";
+$username = "root";
+$password = "";
+$db_name = "dolphin_crm";
+
+$conn = new PDO("mysql:host=$host; dbname=$db_name; charset=utf8mb4",$username, $password);
+
+$id = filter_var($_GET['id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+$sql = "SELECT * FROM contacts where id=$id";
+
+$stmt->execute();
+$row = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -106,6 +106,12 @@ th,td{
     height: 100%;
 }
 
+
+
+.currentPage{
+    color: rgb(74, 192, 207);
+}
+
 aside {
     width: 250px;
     background-color: white;
