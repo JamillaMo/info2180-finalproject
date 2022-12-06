@@ -87,34 +87,26 @@ tbody tr{
     transition: 0.2s;
 }
 
-/* .tableClass {
+.table {
     background-color: #ffffff;
-} */
+}
+
+thead tr{
+    background-color: #bfefff;
+    color: black;
+    font-weight: bold;
+}
+
+th,td{
+    padding: 12px 15px;
+}
 
 .container {
     display: flex;
     height: 100%;
 }
 
-/* ul li {
-    list-style-type: none;
-}
 
-ul li a {
-    text-decoration: none;
-    color: #000;
-}
-
-aside {
-    background-color: #ffffff;
-    padding: 20px;
-    width: 250px;
-    align-items: center;
-}
-
-aside i{
-    margin-right: 10px;
-}*/
 
 .currentPage{
     color: rgb(74, 192, 207);
