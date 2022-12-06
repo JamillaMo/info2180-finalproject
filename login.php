@@ -5,28 +5,29 @@
         <title>Dolphin CRM</title>
 
         <link href="css/login.css" type="text/css" rel="stylesheet">
+        <script src="js/login.js"></script>
 
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
         
     <body>
     <div id="bg"></div>
-        <form action="login.php" method="post">
+        <form>
                 <h2>LOGIN</h2>
-                <?php if(isset($_GET['error'])) { ?>
-                    <p class="error"> <?php echo $_GET['error']; ?></p>
-                <?php } ?>
                 
                 <div class="form-field">
                 <input type="text" name = "email" placeholder="Email address"><br>
+                <div class="emailMsg error"></div>
                 </div>
 
                 <div class="form-field">
                 <input type="password" name="password" placeholder="Password"><br>
+                <div class="passwordMsg error"></div>
                 </div>
                 
                 <div class = "form-field">
-                <button type="submit" class = "btn">Login</button>
+                <button class = "btn">Login</button>
                 </div>
-            </form>
+        </form>
     </body>
 </html>
