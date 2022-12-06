@@ -39,18 +39,6 @@
                 <h1>Users</h1>
                 <button>Add User</button>
             </div>
-            <!-- <div class="tableClass">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Created</th>
-                        </tr> 
-                    </thead>
-                </table>
-            </div> -->
             <?php
                 while($row = mysqli_fetch_array($result)) {
                     echo "<table>

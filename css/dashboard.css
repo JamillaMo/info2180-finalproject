@@ -98,10 +98,12 @@ header{
     justify-content: space-between;
 }
 
-header button{
+header a{
     height: 40px;
     width: 150px;
     font-size: 14px;
+
+    text-decoration: none;
     
     background-color: rgb(25, 136, 180);
     color: #fff;

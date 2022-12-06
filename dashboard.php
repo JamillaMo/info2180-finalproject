@@ -48,7 +48,7 @@ session_start();
         <main>
             <header>
                 <h1>Dashboard</h1>
-                <button><i class="material-icons">group_add</i>Add Contact</button>
+                <a href="create-contact.html"><i class="material-icons">group_add</i>Add Contact</a>
             </header>
 
             <section>
