@@ -39,7 +39,7 @@ session_start();
             <ul>
                 <a href="#" class="currentPage"><li><i class="material-icons">home</i>Home</li></a>
                 <a href="create-contact.html"><li><i class="material-icons">account_circle</i>New Contact</li></a>
-                <a href="#"><li><i class="material-icons">people_outline</i>Users</li></a>
+                <a href="view_users.php"><li><i class="material-icons">people_outline</i>Users</li></a>
                 <hr>
                 <a href="php/logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
             </ul>

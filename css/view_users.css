@@ -116,6 +116,10 @@ aside i{
     margin-right: 10px;
 }*/
 
+.currentPage{
+    color: rgb(74, 192, 207);
+}
+
 aside {
     width: 250px;
     background-color: white;

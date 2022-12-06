@@ -2,20 +2,6 @@
     include "php/db_conn.php";
 
     $result = mysqli_query($conn,"SELECT * FROM users");
-
-    // while($row = mysqli_fetch_array($result)) {
-    //     echo "<table>
-    //     <thead>
-    //         <tr>
-    //             <th>Name</th>
-    //             <th>Email</th>
-    //             <th>Role</th>
-    //             <th>Created</th>
-    //         </tr> 
-    //     </thead>";
-    //     echo "<tbody><tr><td>.$row['title']." ".$row['firstname']." ".$row['lastname'].</td><td>.$row['email'].</td><td>.$row['role'].</td><td>.$row['created'].</td>";
-    //     echo "</table>";
-    // }
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +10,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>View User</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="stylesheet" href="css/view_users.css">
 </head>
 <body>
