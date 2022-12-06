@@ -27,7 +27,7 @@ try{
     $stmt->bindValue(':fname', $firstName, PDO::PARAM_STR);
     $stmt->bindValue(':lname', $lastName, PDO::PARAM_STR);
     $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-    $stmt->bindValue(':password', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
+    $stmt->bindValue(':password', password_hash($password, PASSWORD_DEFAULT));
     $stmt->bindValue(':role', $role, PDO::PARAM_STR);
     $stmt->bindValue(':date', date('Y-m-d H:i:s'));
 

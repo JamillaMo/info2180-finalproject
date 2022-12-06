@@ -27,7 +27,7 @@ window.onload= function(){
 
     contactname.addEventListener('click', function(element) {
         element.preventDefault();
-        fetch("ViewContact.php" )
+        fetch("php/view-Contact.php" )
             .then(response => {
                 if (response.ok){
                     return response.text()
