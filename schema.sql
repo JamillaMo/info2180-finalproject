@@ -16,7 +16,7 @@ PRIMARY KEY (`id`)
 );
 
 INSERT INTO `users` (`email`, `password`) 
-VALUES ('admin@project2.com', MD5('password123'));
+VALUES ('admin@project2.com', PASSWORD('password123'));
 
 DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE `contacts` (
