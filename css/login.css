@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 #bg {
-  background-image: url('img/background.jpg');
+  background-image: url('../img/background.jpg');
   position: fixed;
   left: 0;
   top: 0;
@@ -31,6 +31,7 @@ form .form-field {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  flex-direction: column;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -67,4 +68,18 @@ form .btn {
   border-radius: 4px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   font-size: 17px;
+}
+
+
+.error{
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  margin-top: 3px;
+}
+
+.error .material-icons{
+  margin-right: 5px;
+  font-size: 18px;
+  color: red;
 }
