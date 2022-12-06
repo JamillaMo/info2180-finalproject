@@ -2,8 +2,8 @@
 session_start();
 if(!isset($_SESSION['id'])){
     session_destroy();
-    header('Location: index.php');
-    exit;
+    //header('Location: index.php');
+    //exit;
 }
 ?>
 <!DOCTYPE html>
@@ -12,28 +12,28 @@ if(!isset($_SESSION['id'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add User</title>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
-    <link rel="stylesheet" href="addUser.css">
-    <script src="addUser.js"></script>
+    <link rel="stylesheet" href="css/addUser.css">
+    <script src="js/addUser.js"></script>
     
 </head>
 <body>
     <nav>
-        <img src="#" alt="Dolphin CRM LOGO" srcset="">
+        <img src="img/Dolphin.jpg" alt="Dolphin CRM LOGO" srcset="">
         <p>Dolphin CRM</p>
     </nav>
 
     <div class="container">
         <aside>
             <ul>
-                <a href="#"><li><i class="material-icons">home</i>Home</li></a>
-                <a href="#"><li><i class="material-icons">account_circle</i>New Contact</li></a>
-                <a href="#"><li><i class="material-icons">people_outline</i>Users</li></a>
+                <a href="dashboard.php"><li><i class="material-icons">home</i>Home</li></a>
+                <a href="create-contact.html"><li><i class="material-icons">account_circle</i>New Contact</li></a>
+                <a href="view_users.php" class="currentPage"><li><i class="material-icons">people_outline</i>Users</li></a>
                 <hr>
-                <a href="lougout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
+                <a href="php/logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
             </ul>
         </aside>
     
