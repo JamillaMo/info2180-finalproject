@@ -72,7 +72,7 @@
                             <th>Created</th>
                         </tr> 
                     </thead>";
-                    echo "<tbody><tr><td>.$row['title']." ".$row['firstname']." ".$row['lastname'].</td><td>.$row['email'].</td><td>.$row['role'].</td><td>.$row['created']</td>";
+                    echo "<tbody><tr><td>".$row['title']." ".$row['firstname']." ".$row['lastname']."</td><td>".$row['email']."</td><td>".$row['role']."</td><td>".$row['created']."</td>";
                     echo "</table>";
                 }
             ?>
