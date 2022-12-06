@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include("db_conn.php");
+//include("db_conn.php");
 
 $host = "localhost";
 $username = "root";
@@ -10,9 +10,9 @@ $db_name = "dolphin_crm";
 
 $conn = new PDO("mysql:host=$host; dbname=$db_name; charset=utf8mb4",$username, $password);
 
-$id = filter_var($_GET['id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$id = filter_var($_GET['view'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-$sql = "SELECT * FROM contacts where id=$id";
+$stmt = $conn->prepare("SELECT * FROM contacts where id=$id");
 
 $stmt->execute();
 $row = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
