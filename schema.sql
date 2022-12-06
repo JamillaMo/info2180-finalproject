@@ -8,7 +8,7 @@ CREATE TABLE `users` (
     `id` int(11) NOT NULL auto_increment,
     `firstname` VARCHAR(250) NOT NULL default ' ',
     `lastname` VARCHAR(250) NOT NULL default ' ',
-    `password` VARCHAR(15) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
     `email` VARCHAR(50) NOT NULL default ' ',
     `role` VARCHAR (50) NOT NULL default ' ',
     `created_at` DATETIME,
