@@ -13,6 +13,7 @@
     <title>View User</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/view_users.css">
+    <script src="js/addUserBtn.js"></script>
 </head>
 <body>
     <div class="header">
