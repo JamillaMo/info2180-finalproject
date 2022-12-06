@@ -1,19 +1,21 @@
 <?php
-    $result = mysqli_query($con,"SELECT * FROM users");
+    include "db_conn.php";
 
-    while($row = mysqli_fetch_array($result)) {
-        echo "<table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Created</th>
-            </tr> 
-        </thead>";
-        echo "<tbody><tr><td>.$row['firstname'].</td><td>.$row['email'].</td><td>.$row['role'].</td><td>.$row['created'].</td>";
-        echo "</table>";
-    }
+    $result = mysqli_query($conn,"SELECT * FROM users");
+
+    // while($row = mysqli_fetch_array($result)) {
+    //     echo "<table>
+    //     <thead>
+    //         <tr>
+    //             <th>Name</th>
+    //             <th>Email</th>
+    //             <th>Role</th>
+    //             <th>Created</th>
+    //         </tr> 
+    //     </thead>";
+    //     echo "<tbody><tr><td>.$row['title']." ".$row['firstname']." ".$row['lastname'].</td><td>.$row['email'].</td><td>.$row['role'].</td><td>.$row['created'].</td>";
+    //     echo "</table>";
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +49,7 @@
                 <h1>Users</h1>
                 <button>Add User</button>
             </div>
-            <div class="tableClass">
+            <!-- <div class="tableClass">
                 <table>
                     <thead>
                         <tr>
@@ -58,7 +60,22 @@
                         </tr> 
                     </thead>
                 </table>
-            </div>
+            </div> -->
+            <?php
+                while($row = mysqli_fetch_array($result)) {
+                    echo "<table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Created</th>
+                        </tr> 
+                    </thead>";
+                    echo "<tbody><tr><td>.$row['title']." ".$row['firstname']." ".$row['lastname'].</td><td>.$row['email'].</td><td>.$row['role'].</td><td>.$row['created']</td>";
+                    echo "</table>";
+                }
+            ?>
         </section>
     </div>
 </body>
