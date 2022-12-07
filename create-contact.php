@@ -1,3 +1,24 @@
+<?php
+session_start();
+if(!isset($_SESSION['id'])){
+    session_destroy();
+    //header('Location: index.php');
+    //exit;
+}
+
+
+$host = "localhost";
+$username = "root";
+$password = "";
+$db_name = "dolphin_crm";
+
+$conn = new PDO("mysql:host=$host; dbname=$db_name; charset=utf8mb4",$username, $password);
+
+$stmt = $conn->prepare("SELECT * FROM users");
+$stmt->execute();
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +55,7 @@
             <form>
                 <div class="form-groupfull">
                     <label for="title">Title</label>
-                    <select name="title" id="title" class="form-element">
+                    <select name="title" id="title" class="form-element"> 
                         <option value="Mr">Mr</option>
                         <option value="Mrs">Mrs</option>
                         <option value="Miss">Miss</option>
@@ -83,9 +104,12 @@
                 <div class="form-groupfull">
                     <label for="assigned">Assigned To</label>
                     <select name="assigned" id="assigned" class="form-element">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                    
+                    <?php
+                        foreach($results as $row){
+                            echo "<option value=\"". $row['id'] ."\">". $row['firstname'] . " ".$row['lastname'] ."</option>";
+                        }
+                    ?> 
                     </select>
                 </div>
 

@@ -1,7 +1,11 @@
 <?php
 
 session_start();
-//include("db_conn.php");
+if(!isset($_SESSION['id'])){
+    session_destroy();
+    //header('Location: index.php');
+    //exit;
+}
 
 $host = "localhost";
 $username = "root";

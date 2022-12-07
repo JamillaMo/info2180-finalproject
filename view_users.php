@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(!isset($_SESSION['id'])){
+    session_destroy();
+    //header('Location: index.php');
+    //exit;
+}
     include "php/db_conn.php";
 
     $result = mysqli_query($conn,"SELECT * FROM users");

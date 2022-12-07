@@ -1,5 +1,10 @@
 <?php
-
+session_start();
+if(!isset($_SESSION['id'])){
+    session_destroy();
+    //header('Location: index.php');
+    //exit;
+}
 //include "db_conn.php";
 //USING PDO INSTEAD OF mysqli
 $host = "localhost";
@@ -12,8 +17,6 @@ $conn = new PDO("mysql:host=$host; dbname=$db_name; charset=utf8mb4",$username, 
 $stmt = $conn->prepare("SELECT * FROM contacts");
 $stmt->execute();
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-session_start();
 
 ?>
 <!DOCTYPE html>

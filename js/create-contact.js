@@ -106,7 +106,7 @@ window.addEventListener('load', ()=>{
 
             console.log("FIELDSOK")
 
-            fetch('php/create-contact.php', {
+            fetch('php/create-contactScript.php', {
                 method: 'POST',
                 headers: {'Content-Type':'application/x-www-form-urlencoded'},
                 body: `title=${title.value}&fname=${firstName.value.trim()}&lname=${lastName.value.trim()}&email=${email.value.trim()}&telephone=${number.value}&company=${company.value}&type=${type.value}&assign=${assigned.value}`
