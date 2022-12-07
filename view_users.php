@@ -2,8 +2,11 @@
 session_start();
 if(!isset($_SESSION['id'])){
     session_destroy();
-    header('Location: index.php');
+    header('Location: login.php');
     exit;
+}
+if($_SESSION['role'] != "Admin"){
+    header('Location: dashboard.php');
 }
     include "php/db_conn.php";
 

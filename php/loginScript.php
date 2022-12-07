@@ -24,6 +24,7 @@ if(count($row)==1) {
         $_SESSION['email'] = $row['email'];
         $_SESSION['name'] = $row['firstname'] . " " . $row['lastname'];
         $_SESSION['id'] = $row['id'];
+        $_SESSION['role'] = $row['role'];
         echo "success";
         exit();
     }
