@@ -55,6 +55,7 @@ window.addEventListener('load', ()=>{
         }
 
         //EMAIL INPUT
+        
         let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if(!emailInput.value.trim().match(mailformat))
         {
@@ -69,6 +70,7 @@ window.addEventListener('load', ()=>{
             msg.classList.remove('error')
         }
 
+        
         if(passwordInput.value.trim() == "")
         {
             fieldsOK = false
@@ -77,9 +79,19 @@ window.addEventListener('load', ()=>{
             msg.classList.add('error')
         }
         else{
-            msg = document.querySelector(".passwordMsg")
-            msg.innerHTML = ''
-            msg.classList.remove('error')
+            let passwordFormat = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            if(!passwordInput.value.trim().match(passwordFormat)){
+                fieldsOK = false
+                msg = document.querySelector(".passwordMsg")
+                msg.innerHTML = '<i class=\"material-icons\">&#xe000;</i>Password must be 8 characters long, have at least 1 capital and common letter and a number'
+                msg.classList.add('error')
+            }
+            else{
+                msg = document.querySelector(".passwordMsg")
+                msg.innerHTML = ''
+                msg.classList.remove('error')
+            }
+            
         }
          
 
