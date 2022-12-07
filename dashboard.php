@@ -84,11 +84,11 @@ session_start();
                     ?>
 
                         <tr>
-                            <td><a href="php/viewcontact.php"><p id= "name"><?php echo $row['title']." ".$row['firstname']." ".$row['lastname'] ?></p></a></td> 
+                            <td><p id= "name"><?php echo $row['title']." ".$row['firstname']." ".$row['lastname'] ?></p></td> 
                             <td><?php echo $row['email']?></td> 
                             <td><?php echo $row['company']?></td> 
                             <td><?php echo "<span class=\"" . $classText . "\">" . $row['type'] . "</span>" ?></td> 
-                            <td><a href="php/viewcontact.php" id= "link">Link</a></td>        
+                            <td><a href="view-contact.php?view=<?php echo $row['id'] ?>" id= "link">Link</a></td>        
                         </tr>
                     <?php endforeach; ?>    
                     </tbody>

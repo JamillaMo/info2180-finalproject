@@ -47,12 +47,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $contactId = filter_var($_GET['switch'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $newType = filter_var($_GET['to'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-        $sql = $conn->prepare("UPDATE contacts SET type =" . $newType ." WHERE id = '" .$contactId ."'"); 
+        $sql = $conn->prepare("UPDATE contacts SET `type` = '$newType' WHERE id = $contactId"); 
         $sql->execute();
 
         $sql = $conn->prepare("UPDATE contacts SET updated_at= :date");
         $sql->bindValue(':date', date('Y-m-d H:i:s'));
         $sql->execute();
+
+        echo $newType;
     }
 
 }
