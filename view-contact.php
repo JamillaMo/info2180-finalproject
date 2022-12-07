@@ -158,7 +158,7 @@ function convertTimeFormat(){
                                 </div>
 
                                 <div class="add-note-btn">
-                                    <input type="submit" value="Add Note" id="addNote">
+                                    <input type="submit" value="Add Note" class = "<?php echo $id?>" id="addNote">
                                 </div>
 
                             </form>
