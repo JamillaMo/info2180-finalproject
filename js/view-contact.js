@@ -74,7 +74,7 @@ window.addEventListener('load', () =>{
         })
         .then(data => {
             alert(data)
-            document.querySelector(".notes-container").innerHTML += data
+            document.querySelector(".w-notes").innerHTML += data
         })
         .catch(error => console.log('There was an error' + error));
     })

@@ -158,7 +158,7 @@ function convertTimeFormat(){
                             <form>
 
                                 <div class="editnotes">
-                                <label for="editnotes">Add a Note about Michael</label> <!--filler text-->
+                                <label for="editnotes">Add a Note about <?php echo $row['title'] . " " . $row['firstname']?></label> <!--filler text-->
                                 <textarea name="editnotes" id="editnotes" cols="50" rows="10" placeholder="Enter details here"></textarea>
                                 </div>
 
