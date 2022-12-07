@@ -15,8 +15,8 @@ CREATE TABLE `users` (
 PRIMARY KEY (`id`)
 );
 
-INSERT INTO `users` (`email`, `password`) 
-VALUES ('admin@project2.com', PASSWORD('password123'));
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `password`, `email`, `role`, `created_at`) VALUES
+(2, 'Admin', 'Project', '$2y$10$RpUYkS5zi/Z/caRn9F7n.eCT1EtQD7C2Szpm8Mun.tR8J3aCkg4dG', 'admin@project2.com', 'Admin', '2022-12-07 06:40:17');
 
 DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE `contacts` (
