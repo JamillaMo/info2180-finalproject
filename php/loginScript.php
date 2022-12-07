@@ -28,7 +28,7 @@ if(count($row)==1) {
         echo "success";
         exit();
     }
-    //echo "Incorrect Email or Password2";
+    echo "Incorrect Email or Password";
 }
 else{
     echo "Incorrect Email or Password";
