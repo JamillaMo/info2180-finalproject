@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+$host = "localhost";
+$username = "root";
+$password = "";
+$db_name = "dolphin_crm";
+
+$conn = new PDO("mysql:host=$host; dbname=$db_name; charset=utf8mb4",$username, $password);
+
+$stmt = $conn->prepare("SELECT title, firstname, lastname, email, company, type, telephone, created_at, created_by, updated_at, assigned_to FROM contacts");
+$stmt->execute();
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//$row = mysqli_fetch_array($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,28 +20,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Contact</title>
-    <link rel="stylesheet" href="css/view-contact.css">
-    
+    <link rel="stylesheet" href="vcontact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script> </script>
 </head>
 <body>
 
-    
+    <?php foreach ($results as $row) ?>
     <header>
         <div class="image">
-                <img src="pictures/profilepic2.jpg" alt="Contact Profile Picture" width="90p" height="90p"> <!--filler image-->
+                <img src="pictures/profilepic2.jpg" alt="Contact Profile Picture" width="90p" height="90p"> 
 
                 <div class="text">
-                    <h1>Mr. Michael Scott</h1> <!--filler text-->
-                    <p>Created on November 8, 2022 by David Wallace</p>  <!--filler text-->
-                    <p>Updated on November 13, 2022</p>  <!--filler text-->
+                    <h1><?php echo $row['title']." ".$row['firstname']." ".$row['lastname'] ?></h1> 
+                    <p><?php echo $row['created_at']." ".$row['created_by'] ?></p>  
+                    <p><?php echo $row['updated_at'] ?></p>  
                 </div>
         </div>
 
         <div class="header-buttons">
-            <button type="button" id="abtn"><i class="fas fa-hand-paper"></i>Assign to me</button> 
-            <button type="button" id="sbtn"><i class="fas fa-exchange"></i>Switch to Sales Lead</button> 
+            <button type="button" id="abtn" ><i class="fas fa-hand-paper"></i>Assign to me</button> 
+            <?php if ($row['type'=="Sales Lead"]): ?>
+                <button type="button" id="sbtn"><i class="fas fa-exchange"></i>Switch to Support</button> 
+                <?php $switch;
+                $switch= "Sales Lead"?>
+            <?php else: ?>
+                <button type="button" id="sbtn"><i class="fas fa-exchange"></i>Switch to Sales Lead</button>
+                <?php $switch= "Support"?>
+            <?php endif ?>
         </div>
 
     </header>
@@ -38,26 +60,25 @@
 
             <div class="contact-info">
                 <label for="email"><h4 style="color: #365871;">Email</h4></label>
-                <input type="email" id="email" name="email" value="michael.scott@paper.co" readonly class="info-element">  <!--filler text-->
+                <input type="email" id="email" name="email" value="<?php $row['email'] ?>" readonly class="info-element">  
             </div>
 
             <div class="contact-info">
                 <label for="telephone"><h4 style="color: #365871;">Telephone</h4></label>
-                <input type="text" id="telephone" name="telephone" value="876-999-9999" readonly class="info-element">  <!--filler text-->
+                <input type="text" id="telephone" name="telephone" value="<?php $row['telephone'] ?>" readonly class="info-element">  
             </div>
 
             <div class="contact-info">
                 <label for="company"><h4 style="color: #365871;">Company</h4></label>
-                <input type="text" id="text" name="text" value="The Paper Company" readonly class="info-element">  <!--filler text-->
+                <input type="text" id="text" name="text" value="<?php $row['company'] ?>" readonly class="info-element">  <
             </div>
 
             <div class="contact-info">
                 <label for="assigned"><h4 style="color: #365871;">Assigned To</h4></label>
-                <input type="text" id="assigned" name="assigned" value="Jen Levinson" readonly class="info-element">  <!--filler text-->
+                <input type="text" id="assigned" name="assigned" value="<?php $row['assigned_to'] ?>" readonly class="info-element">  
             </div>
 
         </div>
-
 
         <div class="n-container">
                 <div class="notes-container">
@@ -95,7 +116,7 @@
                         <form action="">
 
                             <div class="editnotes">
-                            <label for="editnotes">Add a Note about Michael</label> <!--filler text-->
+                            <label for="editnotes">Add a Note about <?php $row['first_name'] ?></label> 
                             <textarea name="editnotes" id="editnotes" cols="50" rows="10" placeholder="Enter details here"></textarea>
                             </div>
 

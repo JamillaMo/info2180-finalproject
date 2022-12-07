@@ -1,11 +1,29 @@
 window.onload= function(){
 
+    //var viewlink = document.querySelectorAll('#link');
     var filterall = document.querySelector(".filter-all");
     var filtersales = document.querySelector(".filter-sales");
     var filtersupport = document.querySelector(".filter-support");
     var filterassigned = document.querySelector(".filter-assigned");
 
-   
+    // viewlink.addEventListener('click', function(element) {
+    //     element.preventDefault();
+
+    //     fetch("ViewContact.php?" )
+    //         .then(response => {
+    //             if (response.ok){
+    //                 return response.text()
+    //             }else {
+    //                 return Promise.reject('something went wrong')
+    //             }
+    //     })
+    //     .then(data => {
+    //         console.log;
+    //     })
+    //     .catch(error => console.log('There was an error' + error));
+
+    // })
+
     filterall.addEventListener('click', function(element){
         element.preventDefault();
 
