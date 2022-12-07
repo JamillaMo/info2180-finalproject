@@ -14,15 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(isset($_POST['comment'])){
         $comment = filter_var($_POST['comment'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $contactId = filter_var($_POST['id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $userId = $_SESSION['id'];
+        //$userId = $_SESSION['id'];
 
         //CODE TO ADD NEW NOTE TO DATABASE
-        ////////////////////////
-        ////////////////////////
+        $stmt = $conn->prepare("INSERT INTO notes (id, contact_id, comment, created_by, created_at) 
+                            VALUES (:userId, :contactId, :comment, :created_by, :date)"); 
 
         //CODE TO PUT NEW NOTE ON PAGE
         echo "<div class=\"written-notes\">";
-        echo "<h4>" . $_SESSION['name'] . "</h4>";
+        //echo "<h4>" . $_SESSION['name'] . "</h4>";
         echo "<p class=\"pnotes\">" . $comment . "</p>";
         echo "<p class=\"date\">" . convertDateFormat(substr(date('Y-m-d H:i:s'), 0, 10)) . " at" . substr(date('Y-m-d H:i:s'), 10) . "</p>";
         echo "</div>";
