@@ -26,7 +26,7 @@ session_start();
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/dashboard.css">
-    <script src="js/ViewContactDetails.js"></script>
+    <script src="js/dashboard.js"></script>
 </head>
 <body>
     <nav>

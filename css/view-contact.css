@@ -1,70 +1,148 @@
 *{
     margin: 0;
     padding: 0;
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
 
+html{
+    min-height: 100vh;
+}
 
+body{
+    margin: 0;
+    min-height: 100vh;
+    background-color: rgb(233, 233, 233);
+
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, p{
+    margin: 0;
+}
+
+a, button{
+    cursor: pointer;
+}
 
 img{
     border-radius: 50%;
 }
 
-header{
-    padding-top: 36px;
-    padding-bottom: 20px;
-    padding-right: 36px;
-    padding-left: 36px;
+/*******NAVIGATION******/
+nav{
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px;
+    height: 70px;
+    background: linear-gradient(90deg, rgb(24, 180, 201) 0%, rgba(0,113,156,1) 100%);
+
+    font-weight: bolder;
+    color: white;
+}
+nav img{
+    margin-right: 15px;
+    width: 50px;
 }
 
-.image img{
-    float: left;
+.container{
+    display: flex;
+    height: 100%;
 }
 
-.text {
-    position: absolute;
-    left: 130px;
-    padding: 10px;
+aside{
+
+    min-width: 200px;
+    background-color: white;
+    min-height: 100vh;
+
+    padding: 20px;
 }
-.text p{
-    padding-top: 5px;
+aside i{
+    margin-right: 10px;
 }
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.currentPage{
+    color: rgb(74, 192, 207);
+}
+a{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    text-decoration: none;
+    color: black;
+
+    transition: 0.2s;
+}
+a:hover{
+    margin-left: 10px;
+    color: rgba(0,113,156,1);
+}
+
+li{
+    display: flex;
+    align-items: center;
+}
+
+/*********************/
+header{
+    display: flex;
+    padding: 15px 0;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 i{
     padding-right: 6px;
 }
-.header-buttons{
-    position: absolute;
-    right: 50px;
-    padding: 10px;
+
+.image{
+    display: flex;
+    align-items: center;
+}
+
+.image img{
+    margin-right: 20px;
+    width: 60px;
+
+    align-self: flex-start;
 }
 
 .header-buttons button{
     font-weight: 800;
 }
 
-#abtn, #sbtn{
+#assign, #switch{
     border: none;
     color: black;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 15px;
+    border-radius: 5px;
     box-shadow: 0px 0px 3px rgba(74, 74, 74, 0.2);
 }
 
-#abtn{
+#assign{
     background-color: rgb(66, 203, 123);
+    transition: 0.15s;
 }
-#abtn:hover{
+#assign:hover{
     background-color:  rgb(43, 128, 79);
     color: white;
 }
 
-#sbtn{
+#switch{
     background-color: rgb(231, 194, 10);
 }
-#sbtn:hover{
+#switch:hover{
     background-color:  rgb(144, 120, 0);
     color: white;
 }
@@ -73,10 +151,10 @@ i{
 
 
 section{
-    padding-top: 10px;
-    padding-bottom: 36px;
-    padding-right: 36px;
-    padding-left: 36px;
+    padding: 30px 50px;
+    width: 100%;
+    
+    box-shadow: 0 0 10px rgba(black, black, black, 0.5);
 }
 
 .info-container{

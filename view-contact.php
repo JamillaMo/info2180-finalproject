@@ -12,12 +12,40 @@ $conn = new PDO("mysql:host=$host; dbname=$db_name; charset=utf8mb4",$username, 
 
 $id = filter_var($_GET['view'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+//GETTING THE CONTACT
 $stmt = $conn->prepare("SELECT * FROM contacts where id=$id");
-
 $stmt->execute();
 $row = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
 
+//GETTING THE USER THAT CREATED THE CONTACT
+$stmt = $conn->prepare("SELECT * FROM users where id= " . $row['created_by']);
+$stmt->execute();
+$created_by= $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+
+//GETTING THE USER THAT CONTACT IS ASSIGNED TO
+$stmt = $conn->prepare("SELECT * FROM users where id= " . $row['assigned_to']);
+$stmt->execute();
+$assigned_to= $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+
+//GETTING THE NOTES FOR THE CONTACT
+$stmt = $conn->prepare("SELECT * FROM notes where contact_id= " . $row['id']);
+$stmt->execute();
+$notes= $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+function convertDateFormat($date){
+    $date = explode("-", $date);
+    $monthNum  = $date[1];
+    $dateObj   = DateTime::createFromFormat('!m', $monthNum);
+    $monthName = $dateObj->format('F');
+    return $monthName . " " . $date[2] . " " . $date[0];
+}
+
+function convertTimeFormat(){
+
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,103 +53,71 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Contact</title>
-    <link rel="stylesheet" href="view-contact.css">
+
+    <link rel="stylesheet" href="css/view-contact.css">
+    <script src="js/view-contact.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav>
-        <img src="#" alt="Dolphin CRM LOGO" srcset="">
+        <img src="img/Dolphin.jpg" alt="Dolphin CRM LOGO" srcset="">
         <p>Dolphin CRM</p>
     </nav>
 
     <div class="container">
+
         <aside>
             <ul>
-                <a href="#"><li><i class="material-icons"><!--home--></i>Home</li></a>
-                <a href="#"><li><i class="material-icons"><!--account_circle--></i>New Contact</li></a>
-                <a href="#"><li><i class="material-icons"><!--people_outline--></i>Users</li></a>
+                <a href="dashboard.php"><li><i class="material-icons">home</i>Home</li></a>
+                <a href="create-contact.html"><li><i class="material-icons">account_circle</i>New Contact</li></a>
+                <a href="view_users.php" class="currentPage"><li><i class="material-icons">people_outline</i>Users</li></a>
                 <hr>
-                <a href="lougout.php"><li><i class="material-icons"><!--exit_to_app--></i>Logout</li></a>
+                <a href="php/logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>
             </ul>
         </aside>
 
-
-
-    <div class="page">
-    
-        <header>
-            <div class="image">
-                    <img src="pictures/profilepic2.jpg" alt="Contact Profile Picture" width="90p" height="90p"> 
-
-                    <div class="text">
-                        <h1><?php $row['title']." ".$row['firstname']." ".$row['lastname'] ?></h1> 
-                        <p><?php $row['created_at']." ".$row['created_by'] ?></p>  
-                        <p><?php $row['updated_at'] ?></p>  
-                    </div>
-            </div>
-
-            <div class="header-buttons">
-                <button type="button" id="abtn" onclick="assignclick()"><i class="fas fa-hand-paper"></i>Assign to me</button> 
-                <script> 
-                    function assignclick() {
-                    <?php $sql1 = "UPDATE contacts SET assigned_to= '{$row['firstname']}' '{$row['lastname']}' WHERE firstname= '{$row['firstname']}'"; 
-                        $conn->query($sql1);
-                        $sql2 = "UPDATE contacts SET updated_at= DATE(NOW())";
-                        $conn->query($sql2);?>
-                    }
-                </script>
-                <?php if ($row['type'=="Sales Lead"]): ?>
-                    <button onclick= "switchclick1()" type="button" id="sbtn"><i class="fas fa-exchange"></i>Switch to Support</button> 
-                <script> 
-                    function switchclick1(){
-                        <?php $sql1 = "UPDATE contacts SET type = 'Support' WHERE firstname= '{$row['firstname']}'"; 
-                        $conn->query($sql1);
-                        $sql2 = "UPDATE contacts SET updated_at= DATE(NOW())";
-                        $conn->query($sql2);?>
-                    }
-                </script>
-                <?php else: ?>
-                    <button onclick= "switchclick2()" type="button" id="sbtn"><i class="fas fa-exchange"></i>Switch to Sales Lead</button>
-                <script> 
-                    function switchclick2(){
-                        <?php $sql1 = "UPDATE contacts SET type = 'Sales Lead' WHERE firstname= '{$row['firstname']}'"; 
-                        $conn->query($sql1);
-                        $sql2 = "UPDATE contacts SET updated_at= DATE(NOW())";
-                        $conn->query($sql2);?>
-                    }
-                </script>
-                <?php endif ?>
-            </div>
-
-        </header>
-        <br>
-
         <section>
+            <header>
+                <div class="image">
+                        <img src="img/profilepic.png" alt="Contact Profile Picture"> <!--filler image-->
+
+                        <div class="text">
+                            <h1><?php echo $row['title'] . " " . $row['firstname'] . " " . $row['lastname']?></h1> <!--filler text-->
+                            <p>Created on <?php echo convertDateFormat(substr($row['created_at'], 0, 10)) ?> by <?php echo $created_by['firstname'] . " " . $created_by['lastname']?></p>  <!--filler text-->
+                            <p>Updated on <?php echo convertDateFormat(substr($row['updated_at'], 0, 10)) ?></p>  <!--filler text-->
+                        </div>
+                </div>
+
+                <div class="header-buttons">
+                    <button type="button" id="assign"><i class="fas fa-hand-paper"></i>Assign to me</button> 
+                    <button type="button" id="switch"><i class="fas fa-exchange"></i>Switch to <?php if($row['type'] == "Support"){echo "Sales Lead";} else{echo "Support";}?></button> 
+                </div>
+            </header>
 
             <div class="info-container">
-
                 <div class="contact-info">
                     <label for="email"><h4 style="color: #365871;">Email</h4></label>
-                    <input type="email" id="email" name="email" value="<?php $row['email'] ?>" readonly class="info-element">  
+                    <input type="email" id="email" name="email" value="<?php echo $row['email']?>" readonly class="info-element">
                 </div>
 
                 <div class="contact-info">
                     <label for="telephone"><h4 style="color: #365871;">Telephone</h4></label>
-                    <input type="text" id="telephone" name="telephone" value="<?php $row['telephone'] ?>" readonly class="info-element">  
+                    <input type="text" id="telephone" name="telephone" value="<?php echo $row['telephone']?>" readonly class="info-element">  <!--filler text-->
                 </div>
 
                 <div class="contact-info">
                     <label for="company"><h4 style="color: #365871;">Company</h4></label>
-                    <input type="text" id="text" name="text" value="<?php $row['company'] ?>" readonly class="info-element">  <
+                    <input type="text" id="text" name="text" value="<?php echo $row['company']?>" readonly class="info-element">  <!--filler text-->
                 </div>
 
                 <div class="contact-info">
                     <label for="assigned"><h4 style="color: #365871;">Assigned To</h4></label>
-                    <input type="text" id="assigned" name="assigned" value="<?php $row['assigned_to'] ?>" readonly class="info-element">  
+                    <input type="text" id="assigned" name="assigned" value="<?php echo $assigned_to['firstname'] . " " . $assigned_to['lastname']?>" readonly class="info-element">  <!--filler text-->
                 </div>
-
             </div>
 
 
@@ -137,36 +133,32 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
 
 
                     <div class="w-notes">
-                        <div class="written-notes">
-                            <h4>Jane Doe</h4> <!--filler text-->
-                            <p class="pnotes">Lorem ipsum and some more words balh ablah balh 
-                                lets fill his u with words fhejb skbjk bjksbhj hebjhkhjbhj fsjkbhfj</p> <!--filler text-->
-                            <p class="date"> November 10, 2022 at 4pm</p> <!--filler text-->
-                        </div>
+                        <?php
+                            foreach($notes as $note){
+                                //Getting name of person who made note
+                                $stmt = $conn->prepare("SELECT * FROM users where id= " . $row['created_by']);
+                                $stmt->execute();
+                                $user= $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
 
-                        <div class="written-notes">
-                            <h4>Jane Doe</h4> <!--filler text-->
-                            <p class="pnotes">Lorem ipsum and some more words</p> <!--filler text-->
-                            <p class="date"> November 10, 2022 at 4pm</p> <!--filler text-->
-                        </div>
-
-                        <div class="written-notes">
-                            <h4>Jane Doe</h4> <!--filler text-->
-                            <p class="pnotes">Lorem ipsum and some more words</p> <!--filler text-->
-                            <p class="date"> November 10, 2022 at 4pm</p> <!--filler text-->
-                        </div>
+                                echo "<div class=\"written-notes\">";
+                                    echo "<h4>" . $user['firstname'] . " " . $user['lastname'] . "</h4>";
+                                    echo "<p class=\"pnotes\">" . $note['comment'] . "</p>";
+                                    echo "<p class=\"date\">" . convertDateFormat(substr($note['created_at'], 0, 10)) . " at" . substr($note['created_at'], 10) . "</p>";
+                                echo "</div>";
+                            }
+                        ?>
                     </div>    
 
                         <div class="add-notes">
-                            <form action="">
+                            <form>
 
                                 <div class="editnotes">
-                                <label for="editnotes">Add a Note about <?php $row['first_name'] ?></label> 
+                                <label for="editnotes">Add a Note about Michael</label> <!--filler text-->
                                 <textarea name="editnotes" id="editnotes" cols="50" rows="10" placeholder="Enter details here"></textarea>
                                 </div>
 
                                 <div class="add-note-btn">
-                                    <input type="submit" value="Add Note">
+                                    <input type="submit" value="Add Note" id="addNote">
                                 </div>
 
                             </form>
@@ -179,6 +171,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
         </section>
 
     </div>
+
     
 </body>
 </html>
