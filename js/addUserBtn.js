@@ -3,6 +3,6 @@ window.addEventListener("load", function (e){
 
     btn.addEventListener('click', function (e) {
         e.preventDefault();
-        window.location.href = "/php/addUserPage.php";
+        window.location.href = "addUserPage.php";
     });
 })

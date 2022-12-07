@@ -39,18 +39,20 @@
             </div>
             <div class="table">
                 <?php
-                    while($row = mysqli_fetch_array($result)) {
-                        echo "<table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th>Created</th>
-                            </tr> 
-                        </thead>";
-                        echo "<tbody><tr><td>".$row['title']." ".$row['firstname']." ".$row['lastname']."</td><td>".$row['email']."</td><td>".$row['role']."</td><td>".$row['created_at']."</td>";
-                        echo "</table>";
+                    if($row = mysqli_fetch_array($result)){
+                        while($row = mysqli_fetch_array($result)) {
+                            echo "<table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Created</th>
+                                </tr> 
+                            </thead>";
+                            echo "<tbody><tr><td>".$row['firstname']." ".$row['lastname']."</td><td>".$row['email']."</td><td>".$row['role']."</td><td>".$row['created_at']."</td>";
+                            echo "</table>";
+                        }
                     }
                 ?>
             </div>
