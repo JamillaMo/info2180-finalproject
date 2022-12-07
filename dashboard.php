@@ -51,7 +51,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <main>
             <header>
                 <h1>Dashboard</h1>
-                <a href="create-contact.html"><i class="material-icons">group_add</i>Add Contact</a>
+                <a href="create-contact.php"><i class="material-icons">group_add</i>Add Contact</a>
             </header>
 
             <section>
