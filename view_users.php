@@ -46,8 +46,7 @@ if(!isset($_SESSION['id'])){
             <div class="table">
                 <?php
                     if($row = mysqli_fetch_array($result)){
-                        while($row = mysqli_fetch_array($result)) {
-                            echo "<table>
+                        echo "<table>
                             <thead>
                                 <tr>
                                     <th>Name</th>
@@ -56,9 +55,10 @@ if(!isset($_SESSION['id'])){
                                     <th>Created</th>
                                 </tr> 
                             </thead>";
-                            echo "<tbody><tr><td>".$row['firstname']." ".$row['lastname']."</td><td>".$row['email']."</td><td>".$row['role']."</td><td>".$row['created_at']."</td>";
-                            echo "</table>";
+                        while($row = mysqli_fetch_array($result)) {
+                            echo "<tbody><tr><td width=25%>".$row['firstname']." ".$row['lastname']."</td><td width=25%>".$row['email']."</td><td width=25%>".$row['role']."</td><td width=25%>".$row['created_at']."</td>";
                         }
+                        echo "</table>";
                     }
                 ?>
             </div>
