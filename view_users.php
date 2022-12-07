@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(!isset($_SESSION['id'])){
+    session_destroy();
+    //header('Location: index.php');
+    //exit;
+}
     include "php/db_conn.php";
 
     $result = mysqli_query($conn,"SELECT * FROM users");
@@ -25,7 +31,7 @@
         <aside>
             <ul>
                 <a href="dashboard.php"><li><i class="material-icons">home</i>Home</li></a>
-                <a href="create-contact.html"><li><i class="material-icons">account_circle</i>New Contact</li></a>
+                <a href="create-contact.php"><li><i class="material-icons">account_circle</i>New Contact</li></a>
                 <a href="#"><li><i class="material-icons">people_outline</i>Users</li></a>
                 <hr>
                 <a href="php/logout.php"><li><i class="material-icons">exit_to_app</i>Logout</li></a>

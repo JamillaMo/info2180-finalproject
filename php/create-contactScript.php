@@ -40,7 +40,6 @@ try{
     $stmt->bindValue(':updated_at', date('Y-m-d H:i:s'));
 
     $stmt->execute();
-
     echo "Created new contact successfully";
 }
 catch(Exception $e){
